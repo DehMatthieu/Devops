@@ -1,0 +1,28 @@
+version: '3.7'
+
+services:
+  backend:
+    container_name: simpleapi
+    build: ./simple-api-student-main
+    networks:
+    - my-network
+    depends_on:
+    - database
+
+  database:
+    container_name: tp1database
+    build: ./Database
+    networks:
+    - my-network
+
+  httpd:
+    build: ./HTTPServer
+    ports:
+    - "8082:80"
+    networks:
+      - my-network
+    depends_on:
+    - backend
+
+networks:
+  my-network: {}
