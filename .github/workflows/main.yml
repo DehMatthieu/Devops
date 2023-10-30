@@ -1,4 +1,4 @@
-name: v1.1
+name: v1.2
 on:
   push:
     branches: 
