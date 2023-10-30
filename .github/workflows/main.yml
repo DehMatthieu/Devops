@@ -40,16 +40,19 @@ jobs:
          # relative path to the place where source code with Dockerfile is located
          context: ./simple-api-student-main
          # Note: tags has to be all lower-case
-         tags:  ${{secrets.USER}}/tp-devops/simple-api
+         tags:  ${{secrets.USER}}/simple-api
   
      - name: Build image and push database
+       with:
          # relative path to the place where source code with Dockerfile is located
          context: ./Database
          # Note: tags has to be all lower-case
-         tags:  ${{secrets.USER}}/devops/Database
+         tags:  ${{secrets.USER}}/Database
   
      - name: Build image and push httpd
+     
+       with:
                # relative path to the place where source code with Dockerfile is located
          context: ./HTTPServer
          # Note: tags has to be all lower-case
-         tags:  ${{secrets.USER}}/tp-devops/simple-api
+         tags:  ${{secrets.USER}}/http
