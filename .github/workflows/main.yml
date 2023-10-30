@@ -22,4 +22,34 @@ jobs:
           distribution: 'temurin'
      #finally build your app with the latest command
      - name: Build and test with Maven
-       run: mvn -f ./BackendAPI/Main/pom.xml clean verify
+       run: mvn -f ./simple-api-student-main/pom.xml clean verify
+       
+  build-and-push-docker-image:
+   needs: test-backend
+   # run only when code is compiling and tests are passing
+   runs-on: ubuntu-22.04
+  
+   # steps to perform in job
+   steps:
+     - name: Checkout code
+       uses: actions/checkout@v2.5.0
+  
+     - name: Build image and push backend
+       uses: docker/build-push-action@v3
+       with:
+         # relative path to the place where source code with Dockerfile is located
+         context: ./simple-api-student-main
+         # Note: tags has to be all lower-case
+         tags:  ${{secrets.USER}}/tp-devops/simple-api
+  
+     - name: Build image and push database
+         # relative path to the place where source code with Dockerfile is located
+         context: ./Database
+         # Note: tags has to be all lower-case
+         tags:  ${{secrets.USER}}/devops/Database
+  
+     - name: Build image and push httpd
+               # relative path to the place where source code with Dockerfile is located
+         context: ./HTTPServer
+         # Note: tags has to be all lower-case
+         tags:  ${{secrets.USER}}/tp-devops/simple-api
