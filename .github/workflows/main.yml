@@ -43,6 +43,7 @@ jobs:
          tags:  ${{secrets.USER}}/tp1-backend
   
      - name: Build image and push database
+       uses: docker/build-push-action@v3
        with:
          # relative path to the place where source code with Dockerfile is located
          context: ./Database
@@ -50,6 +51,7 @@ jobs:
          tags:  ${{secrets.USER}}/tp1-database
   
      - name: Build image and push httpd
+       uses: docker/build-push-action@v3
      
        with:
                # relative path to the place where source code with Dockerfile is located
