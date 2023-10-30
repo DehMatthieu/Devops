@@ -1,4 +1,5 @@
 name: devfinal
+on:
   push:
     branches: 
     - ok
