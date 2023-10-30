@@ -1,11 +1,10 @@
-name: devfinal
+name: workname
 on:
   push:
     branches: 
     - ok
     - cloud
   pull_request:
-
 
 jobs:
   test-backend: 
