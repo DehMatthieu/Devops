@@ -1,4 +1,4 @@
-name: workname
+name: work
 on:
   push:
     branches: 
