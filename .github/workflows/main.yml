@@ -2,8 +2,8 @@ name: idk
 on:
   push:
     branches: 
-    - ok
-    - cloud
+    - main
+    - develop
   pull_request:
 
 jobs:
