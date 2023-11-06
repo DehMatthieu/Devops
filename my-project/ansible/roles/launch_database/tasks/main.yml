@@ -1,0 +1,9 @@
+---
+# tasks file for roles/launch_database
+- name: Launch Database Container
+  docker_container:
+    name: tp1database
+    image: mdehaynin/tp1-database
+    networks:
+      - name: my-network
+    state: started

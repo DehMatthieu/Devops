@@ -1,0 +1,9 @@
+---
+# tasks file for roles/launch_app
+- name: Launch App Container
+  docker_container:
+    name: simpleapi
+    image: mdehaynin/tp1-backend
+    networks:
+      - name: my-network
+    state: started

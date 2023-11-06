@@ -1,0 +1,10 @@
+---
+# tasks file for roles/launch_proxy
+- name: Launch Proxy Container
+  docker_container:
+    name: tp1-httpd
+    image: mdehaynin/tp1-httpd
+    ports:
+      - "8082:80"
+    networks:
+      - name: my-network
